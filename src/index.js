@@ -24,7 +24,7 @@ class Sorter {
       return this.array;
   }
 
-  static compare(a, b){
+  compare(a, b){
       return a-b;
   }
 
@@ -37,7 +37,7 @@ class Sorter {
           let a = this.array.slice(indices[i], indices[i]+1);
           tempArray.push(a[0]);
       }
-      tempArray.sort(Sorter.compare);
+      tempArray.sort(this.compare);
 
       indices.sort((a,b) => a - b);
       for(let i=0;i<tempArray.length;i++) {
@@ -45,10 +45,15 @@ class Sorter {
       }
   }
 
-  static setComparator(compareFunction) {
+
+
+  setComparator(compareFunction) {
     // your implementation
-      Sorter.compare = compareFunction;
+      this.compare = compareFunction;
   }
+
+
+
 
 }
 
